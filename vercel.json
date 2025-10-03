@@ -5,14 +5,6 @@
     {
       "source": "/",
       "destination": "/informe/index.html"
-    },
-    {
-      "source": "/informe/(.*)",
-      "destination": "/informe/$1"
-    },
-    {
-      "source": "/diagram/(.*)",
-      "destination": "/diagram/$1"
     }
   ],
   "headers": [

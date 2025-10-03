@@ -5,10 +5,11 @@
   "main": "index.html",
   "scripts": {
     "dev": "npx http-server . -p 3000 -o",
-    "build": "npm run copy-files",
-    "copy-files": "xcopy /E /I /Y informe\\* dist\\ && xcopy /E /I /Y diagram\\* dist\\diagram\\",
+    "build": "mkdir -p dist && cp -r informe/* dist/ && if [ -d 'diagram' ]; then cp -r diagram dist/; fi",
+    "build:windows": "if not exist \"dist\" mkdir dist && xcopy /E /I /Y \"informe\\*\" \"dist\\\" && if exist \"diagram\" xcopy /E /I /Y \"diagram\\*\" \"dist\\diagram\\\"",
     "start": "npx http-server dist -p 3000",
-    "preview": "npm run build && npm run start"
+    "preview": "npm run build && npm run start",
+    "clean": "rm -rf dist"
   },
   "keywords": [
     "pdf",
