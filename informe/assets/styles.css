@@ -1,0 +1,372 @@
+/* Estilos base para el informe técnico - Formato A4 */
+:root {
+    --azul-principal: #0b5cff;
+    --azul-secundario: #2b2f77;
+    --purpura-acento: #4a00e0;
+    --gris-claro: #f8f9fa;
+    --gris-medio: #e9ecef;
+    --negro: #212529;
+    --blanco: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@media print {
+    .page {
+        page-break-after: always;
+        page-break-inside: avoid;
+    }
+    
+    .no-print {
+        display: none;
+    }
+}
+
+@page {
+    size: A4;
+    margin: 2cm;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+    font-size: 11pt;
+    line-height: 1.4;
+    color: var(--negro);
+    background-color: var(--blanco);
+}
+
+.page {
+    width: 21cm;
+    min-height: 29.7cm;
+    margin: 0 auto;
+    background: var(--blanco);
+    position: relative;
+    padding: 2cm;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+/* Header */
+.header {
+    position: absolute;
+    top: 1cm;
+    left: 2cm;
+    right: 2cm;
+    height: 0.8cm;
+    border-bottom: 2px solid var(--azul-principal);
+    padding-bottom: 5px;
+    font-size: 10pt;
+    color: var(--azul-principal);
+    font-weight: 600;
+}
+
+/* Footer */
+.footer {
+    position: absolute;
+    bottom: 1cm;
+    left: 2cm;
+    right: 2cm;
+    height: 0.8cm;
+    border-top: 1px solid var(--gris-medio);
+    padding-top: 5px;
+    font-size: 9pt;
+    color: var(--gris-medio);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Content area */
+.content {
+    margin-top: 1.5cm;
+    margin-bottom: 1.5cm;
+    min-height: 25cm;
+}
+
+/* Títulos */
+h1 {
+    font-size: 24pt;
+    color: var(--azul-principal);
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 16pt;
+    color: var(--azul-secundario);
+    margin-bottom: 15px;
+    margin-top: 25px;
+    border-bottom: 2px solid var(--azul-principal);
+    padding-bottom: 5px;
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 14pt;
+    color: var(--azul-secundario);
+    margin-bottom: 12px;
+    margin-top: 20px;
+    font-weight: 600;
+}
+
+h4 {
+    font-size: 12pt;
+    color: var(--negro);
+    margin-bottom: 10px;
+    margin-top: 15px;
+    font-weight: 600;
+}
+
+/* Párrafos */
+p {
+    margin-bottom: 12px;
+    text-align: justify;
+}
+
+/* Listas */
+ul, ol {
+    margin-left: 20px;
+    margin-bottom: 12px;
+}
+
+li {
+    margin-bottom: 6px;
+}
+
+/* Tablas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 10pt;
+    border: 1px solid var(--gris-medio);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+th {
+    background: linear-gradient(135deg, var(--azul-principal), var(--azul-secundario));
+    color: var(--blanco);
+    padding: 12px;
+    text-align: left;
+    font-weight: 600;
+    border-bottom: 2px solid var(--azul-secundario);
+}
+
+td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--gris-medio);
+    border-right: 1px solid #f0f0f0;
+}
+
+tr:nth-child(even) {
+    background-color: var(--gris-claro);
+}
+
+tr:hover {
+    background-color: #e8f4fd;
+}
+
+/* Tablas de especificaciones técnicas */
+.tabla-specs {
+    font-size: 9pt;
+}
+
+.tabla-specs th {
+    font-size: 9pt;
+    padding: 8px;
+}
+
+.tabla-specs td {
+    padding: 8px;
+    font-family: 'Courier New', monospace;
+}
+
+/* Recuadros de escenarios */
+.escenario {
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 5px;
+    border-left: 5px solid;
+}
+
+.escenario-verde {
+    background-color: #d4edda;
+    border-left-color: #28a745;
+    color: #155724;
+}
+
+.escenario-amarillo {
+    background-color: #fff3cd;
+    border-left-color: #ffc107;
+    color: #856404;
+}
+
+.escenario-rojo {
+    background-color: #f8d7da;
+    border-left-color: #dc3545;
+    color: #721c24;
+}
+
+.escenario h4 {
+    margin-top: 0;
+    color: inherit;
+}
+
+/* Banda azul corporativa */
+.banda-azul {
+    background: linear-gradient(135deg, var(--azul-principal), var(--purpura-acento));
+    height: 80px;
+    width: 100%;
+    margin: 20px 0;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--blanco);
+    font-size: 18pt;
+    font-weight: 700;
+    text-align: center;
+}
+
+/* Logo real de Aperture Technologies */
+.logo-aperture {
+    width: 200px;
+    height: auto;
+    margin: 20px auto;
+    display: block;
+}
+
+/* Logo placeholder (fallback) */
+.logo-placeholder {
+    width: 120px;
+    height: 80px;
+    background-color: var(--azul-principal);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--blanco);
+    font-weight: bold;
+    font-size: 14pt;
+    margin: 20px auto;
+}
+
+/* Portada específica */
+.portada {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.portada h1 {
+    font-size: 28pt;
+    margin: 30px 0;
+}
+
+.portada .subtitulo {
+    font-size: 16pt;
+    color: var(--azul-secundario);
+    margin-bottom: 40px;
+}
+
+.portada .fecha {
+    font-size: 14pt;
+    color: var(--negro);
+    margin: 20px 0;
+}
+
+.portada .autor {
+    font-size: 12pt;
+    color: var(--azul-secundario);
+    margin-top: 40px;
+}
+
+/* Índice */
+.indice {
+    margin-top: 30px;
+}
+
+.indice-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px dotted var(--gris-medio);
+}
+
+.indice-titulo {
+    flex: 1;
+}
+
+.indice-pagina {
+    font-weight: bold;
+    color: var(--azul-principal);
+}
+
+/* Diagrama */
+.diagrama-container {
+    text-align: center;
+    margin: 20px 0;
+    padding: 20px;
+    border: 1px solid var(--gris-medio);
+    border-radius: 5px;
+    background-color: var(--gris-claro);
+}
+
+.diagrama-container svg {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Checklist */
+.checklist {
+    list-style: none;
+    margin-left: 0;
+}
+
+.checklist li {
+    padding-left: 25px;
+    position: relative;
+    margin-bottom: 8px;
+}
+
+.checklist li::before {
+    content: "□";
+    position: absolute;
+    left: 0;
+    font-size: 12pt;
+    color: var(--azul-principal);
+}
+
+/* Resaltados */
+.destacado {
+    background-color: var(--gris-claro);
+    padding: 15px;
+    border-radius: 5px;
+    border-left: 4px solid var(--azul-principal);
+    margin: 15px 0;
+}
+
+.codigo {
+    font-family: 'Courier New', monospace;
+    background-color: var(--gris-claro);
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 10pt;
+}
+
+/* Utilidades */
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.text-left { text-align: left; }
+.mt-20 { margin-top: 20px; }
+.mb-20 { margin-bottom: 20px; }
+.font-bold { font-weight: bold; }
+.color-azul { color: var(--azul-principal); }

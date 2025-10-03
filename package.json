@@ -1,0 +1,33 @@
+{
+  "name": "pdf-empresa-informe-tecnico",
+  "version": "1.0.0",
+  "description": "Informe técnico profesional ESA GV RACK KVR 6 SLIM con exportación a PDF",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx http-server . -p 3000 -o",
+    "build": "npm run copy-files",
+    "copy-files": "xcopy /E /I /Y informe\\* dist\\ && xcopy /E /I /Y diagram\\* dist\\diagram\\",
+    "start": "npx http-server dist -p 3000",
+    "preview": "npm run build && npm run start"
+  },
+  "keywords": [
+    "pdf",
+    "technical-report",
+    "esa-rack",
+    "industrial-diagnostics",
+    "vercel"
+  ],
+  "author": "Aperture Technologies",
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Wasty-mdc/pdf_empresa.git"
+  },
+  "homepage": "https://pdf-empresa.vercel.app"
+}

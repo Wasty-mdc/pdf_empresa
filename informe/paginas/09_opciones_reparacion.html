@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opciones de Reparación - Informe Técnico Rack ESA GV</title>
+    <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+    <div class="page">
+        <!-- Header -->
+        <div class="header">
+            Informe Técnico – Rack ESA GV KVR 6 SLIM (KVR.S006.R0061)
+        </div>
+        
+        <div class="content">
+            <h1>7. Opciones de Reparación</h1>
+            
+            <p>Una vez confirmado el diagnóstico, se procederá con la reparación siguiendo el plan específico para cada escenario. Todas las opciones incluyen garantía de 6 meses en la intervención realizada.</p>
+            
+            <h2>Opción A: Sustitución de Drivers de Salida</h2>
+            
+            <div class="escenario escenario-verde">
+                <h3>🟢 Reparación del Escenario Principal</h3>
+                <p><strong>Aplicable si se confirma fallo en drivers OUT1/OUT2</strong></p>
+            </div>
+            
+            <h3>Procedimiento Técnico</h3>
+            <ol>
+                <li><strong>Desmontaje del módulo:</strong>
+                    <ul>
+                        <li>Desconexión segura de todos los cables</li>
+                        <li>Retirada de la carcasa protectora</li>
+                        <li>Acceso a la PCB principal</li>
+                    </ul>
+                </li>
+                <li><strong>Identificación de componentes:</strong>
+                    <ul>
+                        <li>Localización de los drivers OUT1/OUT2</li>
+                        <li>Verificación de referencias de componentes</li>
+                        <li>Documentación fotográfica</li>
+                    </ul>
+                </li>
+                <li><strong>Desoldadura y sustitución:</strong>
+                    <ul>
+                        <li>Retirada de componentes defectuosos</li>
+                        <li>Limpieza de pads de soldadura</li>
+                        <li>Instalación de nuevos drivers</li>
+                        <li>Soldadura de precisión</li>
+                    </ul>
+                </li>
+                <li><strong>Verificación preventiva:</strong>
+                    <ul>
+                        <li>Inspección visual de OUT3-OUT8</li>
+                        <li>Medición de parámetros críticos</li>
+                        <li>Sustitución preventiva si es necesario</li>
+                    </ul>
+                </li>
+            </ol>
+            
+            <h3>Componentes y Costes</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Concepto</th>
+                        <th>Cantidad</th>
+                        <th>Precio Unitario</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Drivers de salida (equiv. originales)</td>
+                        <td>2-4 unidades</td>
+                        <td>15-25€</td>
+                        <td>30-100€</td>
+                    </tr>
+                    <tr>
+                        <td>Componentes auxiliares (resistencias, condensadores)</td>
+                        <td>Varios</td>
+                        <td>-</td>
+                        <td>20-30€</td>
+                    </tr>
+                    <tr>
+                        <td>Consumibles (estaño, flux, limpieza)</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>10-15€</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Subtotal Material</strong></td>
+                        <td colspan="3"><strong>60-145€</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Mano de obra especializada</td>
+                        <td>6-8 horas</td>
+                        <td>15€/hora</td>
+                        <td>90-120€</td>
+                    </tr>
+                    <tr>
+                        <td><strong>TOTAL REPARACIÓN</strong></td>
+                        <td colspan="3"><strong>150-265€</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h2>Opción B: Reacondicionamiento de Fuente Interna 5V</h2>
+            
+            <div class="escenario escenario-amarillo">
+                <h3>🟡 Reparación del Escenario Secundario</h3>
+                <p><strong>Aplicable si se confirma problema en regulación de 5V</strong></p>
+            </div>
+            
+            <h3>Alcance de la Intervención</h3>
+            <ul>
+                <li><strong>Sustitución completa de condensadores electrolíticos:</strong>
+                    <ul>
+                        <li>Condensadores de filtrado (6-8 unidades)</li>
+                        <li>Condensadores de desacoplo (4-6 unidades)</li>
+                        <li>Verificación de capacidad y ESR</li>
+                    </ul>
+                </li>
+                <li><strong>Revisión del regulador de tensión:</strong>
+                    <ul>
+                        <li>Medición de parámetros del IC regulador</li>
+                        <li>Verificación de disipación térmica</li>
+                        <li>Sustitución si es necesario</li>
+                    </ul>
+                </li>
+                <li><strong>Pruebas de estabilidad extendidas:</strong>
+                    <ul>
+                        <li>Funcionamiento durante 24 horas continuas</li>
+                        <li>Pruebas con variación de temperatura</li>
+                        <li>Verificación de rizado residual</li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <h3>Desglose de Costes</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Concepto</th>
+                        <th>Detalle</th>
+                        <th>Coste</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Condensadores electrolíticos</td>
+                        <td>Alta calidad, baja ESR</td>
+                        <td>25-40€</td>
+                    </tr>
+                    <tr>
+                        <td>IC regulador (si necesario)</td>
+                        <td>Componente de reserva</td>
+                        <td>15-30€</td>
+                    </tr>
+                    <tr>
+                        <td>Componentes auxiliares</td>
+                        <td>Resistencias, diodos</td>
+                        <td>10-20€</td>
+                    </tr>
+                    <tr>
+                        <td>Material consumible</td>
+                        <td>Estaño, flux, limpiadores</td>
+                        <td>15-25€</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Subtotal Material</strong></td>
+                        <td><strong>-</strong></td>
+                        <td><strong>65-115€</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Mano de obra</td>
+                        <td>8-12 horas técnico especializado</td>
+                        <td>120-180€</td>
+                    </tr>
+                    <tr>
+                        <td>Pruebas extendidas</td>
+                        <td>24h funcionamiento + análisis</td>
+                        <td>40-60€</td>
+                    </tr>
+                    <tr>
+                        <td><strong>TOTAL OPCIÓN B</strong></td>
+                        <td><strong>-</strong></td>
+                        <td><strong>225-355€</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h2>Procedimiento de Verificación Post-Reparación</h2>
+            
+            <h3>Pruebas Obligatorias</h3>
+            <p>Independientemente de la opción ejecutada, se realizarán las siguientes verificaciones:</p>
+            
+            <ol>
+                <li><strong>Pruebas eléctricas básicas:</strong>
+                    <ul>
+                        <li>Verificación de todas las tensiones</li>
+                        <li>Medición de corrientes de consumo</li>
+                        <li>Comprobación de aislamiento</li>
+                    </ul>
+                </li>
+                <li><strong>Pruebas funcionales:</strong>
+                    <ul>
+                        <li>Test de todas las salidas (OUT1-OUT8)</li>
+                        <li>Verificación de todas las entradas</li>
+                        <li>Prueba de comunicación con CNC</li>
+                    </ul>
+                </li>
+                <li><strong>Pruebas de integración:</strong>
+                    <ul>
+                        <li>Funcionamiento con máquina CNC</li>
+                        <li>Ciclos de trabajo reales</li>
+                        <li>Verificación de tiempos de respuesta</li>
+                    </ul>
+                </li>
+            </ol>
+            
+            <h2>Garantías y Cobertura</h2>
+            
+            <div class="destacado">
+                <h3>Garantía de Reparación</h3>
+                <ul>
+                    <li><strong>Duración:</strong> 6 meses desde la fecha de entrega</li>
+                    <li><strong>Cobertura:</strong> Fallo de componentes sustituidos</li>
+                    <li><strong>Incluye:</strong> Mano de obra sin coste adicional</li>
+                    <li><strong>Excludes:</strong> Daños por mal uso o factores externos</li>
+                </ul>
+            </div>
+            
+            <h3>Plazos de Ejecución</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Fase</th>
+                        <th>Opción A (Drivers)</th>
+                        <th>Opción B (Fuente 5V)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Pedido de componentes</td>
+                        <td>1-2 días</td>
+                        <td>1-3 días</td>
+                    </tr>
+                    <tr>
+                        <td>Intervención técnica</td>
+                        <td>1 día</td>
+                        <td>2 días</td>
+                    </tr>
+                    <tr>
+                        <td>Pruebas y verificación</td>
+                        <td>4-6 horas</td>
+                        <td>1-2 días</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tiempo total</strong></td>
+                        <td><strong>2-3 días</strong></td>
+                        <td><strong>4-5 días</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h2>Recomendación Técnica</h2>
+            <p>Basándose en la experiencia y análisis de probabilidades, se recomienda <strong>preparar ambas opciones simultáneamente</strong>:</p>
+            
+            <ol>
+                <li>Pedido inmediato de drivers de salida (alta probabilidad de uso)</li>
+                <li>Pedido de condensadores de reserva (menor probabilidad pero tiempo similar)</li>
+                <li>Diagnóstico definitivo el primer día</li>
+                <li>Ejecución inmediata de la reparación apropiada</li>
+            </ol>
+            
+            <p>Esta estrategia minimiza el tiempo total de intervención y asegura disponibilidad de componentes.</p>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <span>Aperture Technologies – Informe Técnico 2025</span>
+            <span>Página 9</span>
+        </div>
+    </div>
+</body>
+</html>

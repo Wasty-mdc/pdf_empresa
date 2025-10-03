@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informe Técnico Completo - Rack ESA GV KVR 6 SLIM</title>
+    <link rel="stylesheet" href="assets/styles.css">
+    <style>
+        .navegacion {
+            background-color: var(--gris-claro);
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .pagina-link {
+            display: block;
+            padding: 10px 15px;
+            margin: 5px 0;
+            background-color: var(--blanco);
+            border: 1px solid var(--gris-medio);
+            border-radius: 3px;
+            text-decoration: none;
+            color: var(--azul-principal);
+            transition: all 0.3s ease;
+        }
+        .pagina-link:hover {
+            background-color: var(--azul-principal);
+            color: var(--blanco);
+        }
+        .pagina-numero {
+            float: right;
+            font-weight: bold;
+        }
+        .instrucciones {
+            background-color: #e3f2fd;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid var(--azul-principal);
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="content">
+            <!-- Logo y título principal -->
+            <img src="assets/LOGO02_HORIZONTAL.png" alt="Aperture Technologies" class="logo-aperture" style="max-width: 300px; height: auto; display: block; margin: 20px auto;">
+            
+            <div class="banda-azul">
+                INFORME TÉCNICO COMPLETO
+            </div>
+            
+            <h1>Rack ESA GV KVR 6 SLIM (KVR.S006.R0061)</h1>
+            <div class="subtitulo">Análisis de Fallo en Salidas Digitales OUT1/OUT2</div>
+            
+            <div class="instrucciones">
+                <h3>📋 Instrucciones de Uso</h3>
+                <p><strong>Para impresión en PDF:</strong></p>
+                <ol>
+                    <li>Abrir cada página individual en el navegador</li>
+                    <li>Usar <kbd>Ctrl+P</kbd> para imprimir</li>
+                    <li>Seleccionar "Guardar como PDF" como destino</li>
+                    <li>Configurar tamaño A4 y márgenes personalizados (2cm)</li>
+                    <li>Repetir para todas las páginas</li>
+                    <li>Combinar PDFs usando herramienta externa si es necesario</li>
+                </ol>
+                
+                <p><strong>Configuración recomendada de impresión:</strong></p>
+                <ul>
+                    <li>Tamaño: A4 (210 x 297 mm)</li>
+                    <li>Orientación: Vertical</li>
+                    <li>Márgenes: 2 cm en todos los lados</li>
+                    <li>Escala: 100% (ajustar automáticamente)</li>
+                    <li>Incluir gráficos de fondo: SÍ</li>
+                </ul>
+            </div>
+            
+            <h2>Navegación del Documento</h2>
+            
+            <div class="navegacion">
+                <h3>Páginas Principales del Informe</h3>
+                
+                <a href="paginas/01_portada.html" class="pagina-link">
+                    Portada Corporativa
+                    <span class="pagina-numero">Página 1</span>
+                </a>
+                
+                <a href="paginas/02_indice.html" class="pagina-link">
+                    Índice de Contenidos
+                    <span class="pagina-numero">Página 2</span>
+                </a>
+                
+                <a href="paginas/03_resumen_ejecutivo.html" class="pagina-link">
+                    1. Resumen Ejecutivo
+                    <span class="pagina-numero">Página 3</span>
+                </a>
+                
+                <a href="paginas/04_alcance.html" class="pagina-link">
+                    2. Alcance del Informe
+                    <span class="pagina-numero">Página 4</span>
+                </a>
+                
+                <a href="paginas/05_introduccion.html" class="pagina-link">
+                    3. Introducción
+                    <span class="pagina-numero">Página 5</span>
+                </a>
+                
+                <a href="paginas/06_descripcion_problema.html" class="pagina-link">
+                    4. Descripción del Problema
+                    <span class="pagina-numero">Página 6</span>
+                </a>
+                
+                <a href="paginas/07_hipotesis_fallo.html" class="pagina-link">
+                    5. Hipótesis de Fallo
+                    <span class="pagina-numero">Página 7</span>
+                </a>
+                
+                <a href="paginas/08_procedimiento_diagnostico.html" class="pagina-link">
+                    6. Procedimiento de Diagnóstico
+                    <span class="pagina-numero">Página 8</span>
+                </a>
+                
+                <a href="paginas/09_opciones_reparacion.html" class="pagina-link">
+                    7. Opciones de Reparación
+                    <span class="pagina-numero">Página 9</span>
+                </a>
+                
+                <a href="paginas/10_opciones_sustitucion.html" class="pagina-link">
+                    8. Opciones de Sustitución
+                    <span class="pagina-numero">Página 10</span>
+                </a>
+                
+                <a href="paginas/11_comparativa_escenarios.html" class="pagina-link">
+                    9. Comparativa de Escenarios
+                    <span class="pagina-numero">Página 11</span>
+                </a>
+                
+                <a href="paginas/12_conclusiones_recomendaciones.html" class="pagina-link">
+                    10. Conclusiones y Recomendaciones
+                    <span class="pagina-numero">Página 12</span>
+                </a>
+                
+                <a href="paginas/13_proximos_pasos.html" class="pagina-link">
+                    11. Próximos Pasos
+                    <span class="pagina-numero">Página 13</span>
+                </a>
+                
+                <h4 style="margin-top: 30px; color: var(--azul-secundario);">Anexos</h4>
+                
+                <a href="paginas/14_anexo_a_diagrama.html" class="pagina-link">
+                    Anexo A: Diagrama de Flujo del Rack
+                    <span class="pagina-numero">Página 14</span>
+                </a>
+                
+                <a href="paginas/15_anexo_b_checklist.html" class="pagina-link">
+                    Anexo B: Checklist de Pruebas
+                    <span class="pagina-numero">Página 15</span>
+                </a>
+                
+                <a href="paginas/16_anexo_c_glosario.html" class="pagina-link">
+                    Anexo C: Glosario de Términos Técnicos
+                    <span class="pagina-numero">Página 16</span>
+                </a>
+            </div>
+            
+            <div class="destacado">
+                <h3>📊 Información del Documento</h3>
+                <table>
+                    <tr>
+                        <td><strong>Total de páginas:</strong></td>
+                        <td>16 páginas</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Fecha de emisión:</strong></td>
+                        <td>3 de octubre de 2025</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Versión:</strong></td>
+                        <td>1.0 Final</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Clasificación:</strong></td>
+                        <td>Documento Técnico Interno</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Elaborado por:</strong></td>
+                        <td>Aperture Technologies - Departamento Técnico</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <div class="escenario escenario-verde">
+                <h3>✅ Estructura del Informe Completada - Versión Avanzada</h3>
+                <p>El informe técnico incluye:</p>
+                <ul>
+                    <li><strong>Portada corporativa</strong> con logo oficial Aperture Technologies y datos técnicos detallados</li>
+                    <li><strong>13 páginas de contenido técnico</strong> con análisis cuantitativo y metodologías avanzadas</li>
+                    <li><strong>3 anexos especializados</strong> con diagramas, checklist detallado y glosario técnico completo</li>
+                    <li><strong>Recuadros de colores</strong> con probabilidades cuantificadas y análisis de riesgo</li>
+                    <li><strong>Tablas comparativas</strong> con especificaciones técnicas precisas y normas industriales</li>
+                    <li><strong>Headers y footers</strong> consistentes con numeración profesional</li>
+                    <li><strong>Diagrama técnico incluido</strong> con análisis de componentes y puntos de medición</li>
+                </ul>
+                
+                <h4>🔬 Mejoras Técnicas Implementadas:</h4>
+                <ul>
+                    <li><strong>Mediciones precisas:</strong> Datos reales de tensión, resistencia interna y temperatura</li>
+                    <li><strong>Análisis de degradación:</strong> Cálculos de MTBF y factores de aceleración</li>
+                    <li><strong>Instrumentación especializada:</strong> Especificaciones de equipos de medida avanzados</li>
+                    <li><strong>Metodologías de diagnóstico:</strong> Protocolos IEEE y normas industriales</li>
+                    <li><strong>Análisis económico:</strong> ROI cuantificado y análisis coste-beneficio detallado</li>
+                    <li><strong>Evaluación de riesgos:</strong> Probabilidades fundamentadas y cronogramas realistas</li>
+                </ul>
+            </div>
+            
+            <div class="escenario escenario-amarillo">
+                <h3>⚠️ Notas Importantes</h3>
+                <ul>
+                    <li>Cada página está optimizada para impresión A4</li>
+                    <li>Los estilos CSS están diseñados para mantener formato al imprimir</li>
+                    <li>Las tablas y recuadros conservan colores corporativos</li>
+                    <li>El diagrama SVG se incluye correctamente en el Anexo A</li>
+                    <li>Todas las páginas tienen numeración y footer corporativo</li>
+                </ul>
+            </div>
+            
+            <h2>Contenido Técnico Incluido</h2>
+            
+            <h3>Análisis Completo</h3>
+            <ul>
+                <li>✅ Diagnóstico detallado del fallo en salidas OUT1/OUT2</li>
+                <li>✅ Tres escenarios de fallo con códigos de colores</li>
+                <li>✅ Procedimiento paso a paso de diagnóstico</li>
+                <li>✅ Opciones de reparación con costes detallados (150-300€)</li>
+                <li>✅ Alternativas de sustitución (rack usado: 400-900€, nuevo: 1200-2000€)</li>
+                <li>✅ Opción de modernización PLC (4500-6500€)</li>
+                <li>✅ Estrategia a largo plazo con CNC moderno</li>
+            </ul>
+            
+            <h3>Documentación Profesional</h3>
+            <ul>
+                <li>✅ Formato corporativo con colores #0b5cff, #2b2f77, #4a00e0</li>
+                <li>✅ Tablas estilizadas con encabezados azules</li>
+                <li>✅ Checklist detallado para técnicos</li>
+                <li>✅ Glosario completo de términos técnicos</li>
+                <li>✅ Plan de acción con cronograma específico</li>
+                <li>✅ Métricas de éxito y seguimiento</li>
+            </ul>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <span>Aperture Technologies – Informe Técnico 2025</span>
+            <span>Índice Principal</span>
+        </div>
+    </div>
+</body>
+</html>

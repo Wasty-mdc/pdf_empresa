@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anexo B - Checklist de Pruebas - Informe Técnico Rack ESA GV</title>
+    <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+    <div class="page">
+        <!-- Header -->
+        <div class="header">
+            Informe Técnico – Rack ESA GV KVR 6 SLIM (KVR.S006.R0061)
+        </div>
+        
+        <div class="content">
+            <h1>Anexo B: Checklist de Pruebas</h1>
+            
+            <p>Este anexo proporciona una lista de verificación completa para el diagnóstico, reparación y validación del rack ESA GV KVR 6 SLIM. Utilizar esta lista asegura que no se omita ningún paso crítico durante la intervención.</p>
+            
+            <h2>Pre-Diagnóstico - Preparación</h2>
+            
+            <h3>🔧 Preparación de Herramientas e Instrumentos</h3>
+            <ul class="checklist">
+                <li>Multímetro digital calibrado (precisión 0.1%)</li>
+                <li>Osciloscopio de 4 canales mínimo (100MHz)</li>
+                <li>Fuente de alimentación variable (0-30V, 2A)</li>
+                <li>Cargas resistivas de prueba (2.2kΩ, 4.7kΩ, 10kΩ - 5W)</li>
+                <li>Soldador de temperatura controlada (40W)</li>
+                <li>Estación de desoldadura o aire caliente</li>
+                <li>Estaño sin plomo SAC305 y flux</li>
+                <li>Destornilladores de precisión (Phillips y planos)</li>
+                <li>Alicates de punta y cortacables</li>
+                <li>Lupa con iluminación LED</li>
+                <li>Cámara fotográfica para documentación</li>
+                <li>Etiquetas de identificación y marcadores</li>
+            </ul>
+            
+            <h3>📋 Preparación de Documentación</h3>
+            <ul class="checklist">
+                <li>Esquemas eléctricos del rack (si disponibles)</li>
+                <li>Manual de usuario del CNC asociado</li>
+                <li>Historial de mantenimiento previo</li>
+                <li>Especificaciones técnicas originales</li>
+                <li>Formularios de registro de mediciones</li>
+                <li>Protocolo de seguridad eléctrica</li>
+                <li>Lista de contactos de emergencia</li>
+            </ul>
+            
+            <h2>Fase 1: Diagnóstico Inicial</h2>
+            
+            <h3>🔍 Inspección Visual Preliminar</h3>
+            <ul class="checklist">
+                <li>Estado general de la carcasa (grietas, deformaciones)</li>
+                <li>Conexiones externas (cables, bornes, conectores)</li>
+                <li>LEDs indicadores de estado y alimentación</li>
+                <li>Signos de sobrecalentamiento (decoloración, olor)</li>
+                <li>Presencia de humedad o corrosión</li>
+                <li>Ventilación adecuada del armario eléctrico</li>
+                <li>Documentar con fotografías el estado inicial</li>
+            </ul>
+            
+            <h3>⚡ Verificación de Alimentación</h3>
+            <ul class="checklist">
+                <li>Tensión de entrada 24V en bornes principales</li>
+                <li>Rizado de alimentación (&lt;100mV pp)</li>
+                <li>Continuidad del fusible de entrada</li>
+                <li>Resistencia de aislamiento a tierra</li>
+                <li>Verificar polaridad de conexión</li>
+                <li>Medir corriente de consumo total</li>
+                <li>Registrar todas las mediciones</li>
+            </ul>
+            
+            <h3>🔧 Medición de Regulador Interno 5V</h3>
+            <ul class="checklist">
+                <li>Tensión de salida del regulador 5V</li>
+                <li>Rizado en la línea de 5V (&lt;50mV pp)</li>
+                <li>Corriente consumida por lógica digital</li>
+                <li>Temperatura del disipador del regulador</li>
+                <li>Verificación de condensadores de filtrado</li>
+                <li>Medición con osciloscopio de estabilidad</li>
+            </ul>
+            
+            <h2>Fase 2: Diagnóstico Específico de Salidas</h2>
+            
+            <h3>📊 Mediciones en Salidas OUT1 y OUT2</h3>
+            
+            <h4>Sin Carga Conectada</h4>
+            <ul class="checklist">
+                <li>Tensión OUT1 con salida activada</li>
+                <li>Tensión OUT2 con salida activada</li>
+                <li>Tensión OUT1 con salida desactivada</li>
+                <li>Tensión OUT2 con salida desactivada</li>
+                <li>Corriente de fuga en estado OFF</li>
+                <li>Tiempo de subida (0-90% de tensión final)</li>
+                <li>Tiempo de bajada (90-10% de tensión inicial)</li>
+            </ul>
+            
+            <h4>Con Carga Resistiva 4.7kΩ</h4>
+            <ul class="checklist">
+                <li>Tensión OUT1 bajo carga nominal</li>
+                <li>Tensión OUT2 bajo carga nominal</li>
+                <li>Corriente circulante medida</li>
+                <li>Caída de tensión respecto a sin carga</li>
+                <li>Estabilidad durante 5 minutos</li>
+                <li>Variación con temperatura</li>
+            </ul>
+            
+            <h4>Con Carga Resistiva 2.2kΩ (Máxima)</h4>
+            <ul class="checklist">
+                <li>Tensión OUT1 bajo carga máxima</li>
+                <li>Tensión OUT2 bajo carga máxima</li>
+                <li>Verificar no activación de protecciones</li>
+                <li>Temperatura de drivers durante la prueba</li>
+                <li>Comportamiento dinámico (ON/OFF rápido)</li>
+            </ul>
+            
+            <h3>🔄 Comparativa con Salidas Operativas</h3>
+            <ul class="checklist">
+                <li>Medición idéntica en OUT3 (referencia)</li>
+                <li>Medición idéntica en OUT4 (referencia)</li>
+                <li>Comparación de tiempos de respuesta</li>
+                <li>Análisis de diferencias significativas</li>
+                <li>Documentar todas las variaciones</li>
+            </ul>
+            
+            <h2>Fase 3: Análisis de Señales de Control</h2>
+            
+            <h3>🔍 Verificación de Lógica de Control</h3>
+            <ul class="checklist">
+                <li>Señal de control hacia driver OUT1 (0V/5V)</li>
+                <li>Señal de control hacia driver OUT2 (0V/5V)</li>
+                <li>Sincronización con comandos del CNC</li>
+                <li>Ausencia de ruido en señales digitales</li>
+                <li>Verificar flancos de subida/bajada limpios</li>
+                <li>Medir retardo comando-respuesta</li>
+            </ul>
+            
+            <h3>📡 Comunicación con CNC</h3>
+            <ul class="checklist">
+                <li>Activación manual de OUT1 desde CNC</li>
+                <li>Activación manual de OUT2 desde CNC</li>
+                <li>Respuesta del sistema a comandos</li>
+                <li>Verificar códigos de error del CNC</li>
+                <li>Comprobar retroalimentación de estado</li>
+            </ul>
+            
+            <h2>Fase 4: Reparación (Si Procede)</h2>
+            
+            <h3>🔨 Preparación para Intervención</h3>
+            <ul class="checklist">
+                <li>Desconexión total de alimentación</li>
+                <li>Verificación de ausencia de tensión</li>
+                <li>Etiquetado de todos los cables</li>
+                <li>Fotografías del cableado original</li>
+                <li>Desmontaje seguro de la carcasa</li>
+                <li>Identificación visual de componentes a sustituir</li>
+            </ul>
+            
+            <h3>🛠️ Sustitución de Componentes</h3>
+            <ul class="checklist">
+                <li>Desoldadura del driver OUT1 defectuoso</li>
+                <li>Desoldadura del driver OUT2 defectuoso</li>
+                <li>Limpieza de pads de soldadura</li>
+                <li>Verificación de continuidad de pistas</li>
+                <li>Soldadura del nuevo driver OUT1</li>
+                <li>Soldadura del nuevo driver OUT2</li>
+                <li>Inspección visual de soldaduras</li>
+                <li>Verificación de ausencia de cortocircuitos</li>
+            </ul>
+            
+            <h3>🔧 Verificación Post-Soldadura</h3>
+            <ul class="checklist">
+                <li>Continuidad entre pins y pistas</li>
+                <li>Aislamiento entre líneas críticas</li>
+                <li>Resistencia de alimentación a masa</li>
+                <li>Verificación de polaridad de componentes</li>
+                <li>Limpieza de residuos de flux</li>
+            </ul>
+            
+            <h2>Fase 5: Validación Post-Reparación</h2>
+            
+            <h3>⚡ Pruebas Eléctricas Básicas</h3>
+            <ul class="checklist">
+                <li>Aplicación gradual de alimentación</li>
+                <li>Verificación de consumo de corriente</li>
+                <li>Medición de tensión regulador 5V</li>
+                <li>Ausencia de calentamiento anómalo</li>
+                <li>LEDs de estado funcionando correctamente</li>
+            </ul>
+            
+            <h3>🔍 Repetición de Mediciones de Diagnóstico</h3>
+            <ul class="checklist">
+                <li>Tensión OUT1 sin carga (debe ser 22.8-25.2V)</li>
+                <li>Tensión OUT2 sin carga (debe ser 22.8-25.2V)</li>
+                <li>Tensión OUT1 con carga 4.7kΩ (debe ser &gt;22V)</li>
+                <li>Tensión OUT2 con carga 4.7kΩ (debe ser &gt;22V)</li>
+                <li>Tiempo de subida OUT1 (debe ser &lt;50μs)</li>
+                <li>Tiempo de subida OUT2 (debe ser &lt;50μs)</li>
+                <li>Corriente de fuga estado OFF (&lt;1mA)</li>
+                <li>Comparar con mediciones pre-reparación</li>
+            </ul>
+            
+            <h3>🔄 Pruebas Funcionales con CNC</h3>
+            <ul class="checklist">
+                <li>Reconexión del rack al sistema CNC</li>
+                <li>Verificación de comunicación</li>
+                <li>Activación de OUT1 desde CNC</li>
+                <li>Activación de OUT2 desde CNC</li>
+                <li>Ciclo completo de refrigerante (OUT1)</li>
+                <li>Ciclo completo de sujeción (OUT2)</li>
+                <li>Funcionamiento durante 30 minutos</li>
+                <li>Ausencia de errores o alarmas</li>
+            </ul>
+            
+            <h2>Fase 6: Documentación y Entrega</h2>
+            
+            <h3>📝 Documentación de Resultados</h3>
+            <ul class="checklist">
+                <li>Registro de todas las mediciones finales</li>
+                <li>Fotografías del trabajo realizado</li>
+                <li>Lista de componentes sustituidos</li>
+                <li>Comparativa antes/después de reparación</li>
+                <li>Tiempo total de intervención</li>
+                <li>Observaciones y recomendaciones</li>
+            </ul>
+            
+            <h3>✅ Criterios de Aceptación Final</h3>
+            <ul class="checklist">
+                <li>Todas las tensiones dentro de especificación</li>
+                <li>Tiempos de respuesta conformes</li>
+                <li>Funcionamiento estable durante 1 hora</li>
+                <li>Ausencia de calentamiento excesivo</li>
+                <li>CNC opera sin errores</li>
+                <li>Cliente satisfecho con el resultado</li>
+                <li>Documentación completa entregada</li>
+                <li>Garantía de 6 meses activada</li>
+            </ul>
+            
+            <h2>Plan de Seguimiento Post-Reparación</h2>
+            
+            <h3>📅 Calendario de Verificaciones</h3>
+            <ul class="checklist">
+                <li>Día 1: Funcionamiento primeras 8 horas</li>
+                <li>Día 3: Verificación de estabilidad</li>
+                <li>Día 7: Medición de parámetros críticos</li>
+                <li>Día 15: Evaluación de rendimiento</li>
+                <li>Día 30: Revisión completa de funcionamiento</li>
+                <li>Mes 3: Verificación preventiva</li>
+                <li>Mes 6: Evaluación final de garantía</li>
+            </ul>
+            
+            <div class="destacado">
+                <h3>🚨 Criterios de Escalación</h3>
+                <p><strong>Contactar inmediatamente si:</strong></p>
+                <ul>
+                    <li>Cualquier tensión fuera de ±10% de especificación</li>
+                    <li>Tiempo de respuesta superior a 75μs</li>
+                    <li>Calentamiento excesivo (&gt;60°C ambiente)</li>
+                    <li>Errores recurrentes en CNC</li>
+                    <li>Comportamiento errático de cualquier tipo</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <span>Aperture Technologies – Informe Técnico 2025</span>
+            <span>Página 15</span>
+        </div>
+    </div>
+</body>
+</html>

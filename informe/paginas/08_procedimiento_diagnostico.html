@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Procedimiento de Diagnóstico - Informe Técnico Rack ESA GV</title>
+    <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+    <div class="page">
+        <!-- Header -->
+        <div class="header">
+            Informe Técnico – Rack ESA GV KVR 6 SLIM (KVR.S006.R0061)
+        </div>
+        
+        <div class="content">
+            <h1>6. Procedimiento de Diagnóstico</h1>
+            
+            <p>El diagnóstico se realizará siguiendo una metodología sistemática que permita identificar con precisión la causa del fallo, minimizando el tiempo de intervención y asegurando un diagnóstico certero.</p>
+            
+            <h2>Equipamiento Requerido</h2>
+            
+            <h3>Instrumentación de Medida</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Instrumento</th>
+                        <th>Especificaciones Técnicas</th>
+                        <th>Modelo Recomendado</th>
+                        <th>Propósito Específico</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Multímetro digital</td>
+                        <td>6.5 dígitos, 0.02% VDC, True RMS</td>
+                        <td>Keysight 34461A / Fluke 8846A</td>
+                        <td>Mediciones DC precisas, THD</td>
+                    </tr>
+                    <tr>
+                        <td>Osciloscopio</td>
+                        <td>200MHz, 4CH, 2GSa/s, FFT</td>
+                        <td>Tektronix MSO2024B / R&amp;S RTB2004</td>
+                        <td>Análisis temporal, espectral, jitter</td>
+                    </tr>
+                    <tr>
+                        <td>LCR Meter</td>
+                        <td>100Hz-1MHz, 0.05% precisión</td>
+                        <td>Keysight E4980AL / Wayne Kerr 6500B</td>
+                        <td>Impedancia, ESR, capacitancia</td>
+                    </tr>
+                    <tr>
+                        <td>Fuente SMU</td>
+                        <td>0-30V, 3A, sourcing/sinking</td>
+                        <td>Keysight B2902A / Rigol DP832A</td>
+                        <td>Curvas I-V, caracterización drivers</td>
+                    </tr>
+                    <tr>
+                        <td>Cámara termográfica</td>
+                        <td>320x240, ±2°C, 30Hz</td>
+                        <td>FLIR E8-XT / Testo 871</td>
+                        <td>Mapeo térmico, hotspots</td>
+                    </tr>
+                    <tr>
+                        <td>Generador funciones</td>
+                        <td>25MHz, forma de onda arbitraria</td>
+                        <td>Siglent SDG1032X / Rigol DG822</td>
+                        <td>Pruebas dinámicas, respuesta frecuencial</td>
+                    </tr>
+                </tbody>
+            </table>            <h3>Herramientas de Intervención</h3>
+            <ul>
+                <li>Destornilladores de precisión (Phillips y planos)</li>
+                <li>Alicates de punta y cortacables</li>
+                <li>Soldador de precisión (40W) con temperatura controlada</li>
+                <li>Estaño sin plomo (SAC305) y flux</li>
+                <li>Desoldador o estación de aire caliente</li>
+                <li>Lupa con iluminación LED</li>
+            </ul>
+            
+            <h2>Fase 1: Mediciones Eléctricas Básicas</h2>
+            
+            <h3>Verificación de Alimentación</h3>
+            <ol>
+                <li><strong>Tensión de entrada (24V):</strong>
+                    <ul>
+                        <li>Medición en bornes de entrada</li>
+                        <li>Verificación de rizado (&lt;100mV pp)</li>
+                        <li>Comprobación de estabilidad bajo carga</li>
+                    </ul>
+                </li>
+                <li><strong>Regulación interna (5V):</strong>
+                    <ul>
+                        <li>Tensión de salida del regulador</li>
+                        <li>Rizado en la línea de 5V</li>
+                        <li>Corriente de consumo</li>
+                    </ul>
+                </li>
+            </ol>
+            
+            <h3>Análisis de Salidas Problemáticas</h3>
+            
+            <div class="destacado">
+                <h4>Protocolo de Medición para OUT1 y OUT2</h4>
+                <p>Cada salida se someterá a la siguiente secuencia de pruebas:</p>
+            </div>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Prueba</th>
+                        <th>Condición de Ensayo</th>
+                        <th>Valor de Referencia</th>
+                        <th>Criterio de Fallo</th>
+                        <th>Instrumentación</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Tensión sin carga (Voc)</td>
+                        <td>Iout = 0, Tamb = 23°C</td>
+                        <td>24.0V ±5% (22.8-25.2V)</td>
+                        <td>&lt;22.8V o &gt;25.2V</td>
+                        <td>DMM 6.5 dig, 10MΩ input</td>
+                    </tr>
+                    <tr>
+                        <td>Tensión bajo carga nominal</td>
+                        <td>Rload = 4.7kΩ ±1%, 5W</td>
+                        <td>&gt;22.0V (reg. carga ±8%)</td>
+                        <td>&lt;22.0V</td>
+                        <td>DMM + resistor precisión</td>
+                    </tr>
+                    <tr>
+                        <td>Resistencia interna (Ron)</td>
+                        <td>Iout = 5-10mA, VGS = 5V</td>
+                        <td>&lt;0.5Ω (MOSFET nuevo)</td>
+                        <td>&gt;1.0Ω</td>
+                        <td>SMU 4-wire, curva I-V</td>
+                    </tr>
+                    <tr>
+                        <td>Tiempo subida (tr)</td>
+                        <td>10%-90%, Cload = 100nF</td>
+                        <td>&lt;50μs (rise time)</td>
+                        <td>&gt;75μs</td>
+                        <td>Oscilo 200MHz, 1GS/s</td>
+                    </tr>
+                    <tr>
+                        <td>Corriente fuga (Ioff)</td>
+                        <td>VGS = 0V, VDS = 24V</td>
+                        <td>&lt;1mA (estado OFF)</td>
+                        <td>&gt;2mA</td>
+                        <td>Picoamperímetro / SMU</td>
+                    </tr>
+                    <tr>
+                        <td>Ruido térmico</td>
+                        <td>BW = 10Hz-10kHz, T=25°C</td>
+                        <td>&lt;100μVrms</td>
+                        <td>&gt;200μVrms</td>
+                        <td>Analizador espectro + LNA</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h2>Fase 2: Pruebas con Carga Controlada</h2>
+            
+            <h3>Banco de Pruebas Resistivo</h3>
+            <p>Se realizarán mediciones con diferentes valores de carga para caracterizar completamente el comportamiento de las salidas:</p>
+            
+            <ol>
+                <li><strong>Carga alta (10kΩ):</strong> Verificar comportamiento con consumo mínimo</li>
+                <li><strong>Carga media (4.7kΩ):</strong> Condición típica de uso</li>
+                <li><strong>Carga baja (2.2kΩ):</strong> Máximo consumo esperado</li>
+                <li><strong>Sin carga:</strong> Verificar tensión máxima disponible</li>
+            </ol>
+            
+            <h3>Análisis Dinámico Avanzado</h3>
+            <p>Utilizando instrumentación especializada, se realizará:</p>
+            <ul>
+                <li><strong>Caracterización I-V completa:</strong> Barrido VDS 0-30V con VGS escalonado (0-5V)</li>
+                <li><strong>Análisis de impedancia vs frecuencia:</strong> Barrido 100Hz-1MHz para detección de ESR/ESL degradados</li>
+                <li><strong>Medición de transconductancia (gm):</strong> gm = ∂ID/∂VGS para evaluación de canal MOSFET</li>
+                <li><strong>S-parameter analysis (S11, S21):</strong> Caracterización RF hasta 10MHz para parásitos</li>
+                <li><strong>Thermal transient analysis:</strong> Curva de calentamiento/enfriamiento con cámara IR</li>
+                <li><strong>Noise figure measurement:</strong> Análisis espectral 0.1Hz-100kHz para defectos cristalinos</li>
+            </ul>
+            
+            <h3>Protocolo de Estrés Acelerado</h3>
+            <div class="destacado">
+                <h4>🔍 Pruebas de Vida Acelerada (ALT)</h4>
+                <ol>
+                    <li><strong>Thermal cycling:</strong> -10°C ↔ +80°C, 100 ciclos, dwell 15min</li>
+                    <li><strong>Power cycling:</strong> 0% ↔ 100% duty, 1000 ciclos, f = 1Hz</li>
+                    <li><strong>HTOL (High Temp Operating Life):</strong> 85°C, VDS = 80% max, 168h</li>
+                    <li><strong>HTRB (High Temp Reverse Bias):</strong> 125°C, VDS = 120% rated, 24h</li>
+                </ol>
+                <p><strong>Criterio de fallo acelerado:</strong> Degradación &gt;20% en cualquier parámetro</p>
+            </div>
+            
+            <h2>Fase 3: Verificación de Señales de Control</h2>
+            
+            <h3>Análisis de la Lógica de Control</h3>
+            <p>Se verificará que los drivers reciben las señales de control correctas:</p>
+            
+            <ol>
+                <li><strong>Señal de activación:</strong>
+                    <ul>
+                        <li>Nivel lógico (0V/5V) en la entrada del driver</li>
+                        <li>Sincronización con comando del CNC</li>
+                        <li>Ausencia de ruido o interferencias</li>
+                    </ul>
+                </li>
+                <li><strong>Alimentación del driver:</strong>
+                    <ul>
+                        <li>Tensión de alimentación interna</li>
+                        <li>Corriente de polarización</li>
+                        <li>Estabilidad térmica</li>
+                    </ul>
+                </li>
+            </ol>
+            
+            <h2>Fase 4: Comparativa con Canales Operativos</h2>
+            
+            <h3>Análisis Diferencial</h3>
+            <p>Se compararán OUT1 y OUT2 (problemáticas) con OUT3 y OUT4 (operativas) para identificar diferencias:</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Parámetro</th>
+                        <th>OUT3 (Referencia)</th>
+                        <th>OUT1 (Problema)</th>
+                        <th>Diferencia</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Tensión nominal</td>
+                        <td>24.1V</td>
+                        <td>18.2V</td>
+                        <td>-5.9V</td>
+                    </tr>
+                    <tr>
+                        <td>Bajo carga 4.7kΩ</td>
+                        <td>23.8V</td>
+                        <td>12.1V</td>
+                        <td>-11.7V</td>
+                    </tr>
+                    <tr>
+                        <td>Tiempo subida</td>
+                        <td>35μs</td>
+                        <td>200μs</td>
+                        <td>+165μs</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h2>Interpretación de Resultados (Criteria Decision Matrix)</h2>
+            
+            <h3>Algoritmo de Decisión Cuantificado</h3>
+            <div class="escenario escenario-verde">
+                <h4>🟢 Confirma Escenario 1 (Drivers Degradados) - Score ≥70%</h4>
+                <ul>
+                    <li>Regulación 5V estable: Rizado &lt;50mV pp (✓ 25 puntos)</li>
+                    <li>Señales control correctas: VIH &gt;4.5V, VIL &lt;0.5V (✓ 20 puntos)</li>
+                    <li>Fallo localizado: Solo OUT1/OUT2 afectadas (✓ 25 puntos)</li>
+                    <li>RDS-on degradada: &gt;150% valor nominal (✓ 30 puntos)</li>
+                    <li><strong>Score total: 100 puntos → Diagnóstico confirmado</strong></li>
+                </ul>
+            </div>
+            
+            <div class="escenario escenario-amarillo">
+                <h4>🗱 Confirma Escenario 2 (Regulador 5V) - Score ≥60%</h4>
+                <ul>
+                    <li>Rizado excesivo 5V: &gt;80mV pp (✓ 30 puntos)</li>
+                    <li>Múltiples canales correlacionados: ≥3 canales (✓ 25 puntos)</li>
+                    <li>Dependencia térmica: &gt;10% variación/10°C (✓ 20 puntos)</li>
+                    <li>ESR condensadores: &gt;200% nominal (✓ 25 puntos)</li>
+                    <li><strong>Score total: 100 puntos → Diagnóstico confirmado</strong></li>
+                </ul>
+            </div>
+            
+            <div class="escenario escenario-rojo">
+                <h4>🔴 Confirma Escenario 3 (Lógica Control) - Score ≥50%</h4>
+                <ul>
+                    <li>Señales control erróneas: Niveles fuera 0.4-4.6V (✓ 35 puntos)</li>
+                    <li>Múltiples subsistemas: &gt;50% funciones afectadas (✓ 30 puntos)</li>
+                    <li>Patrones complejos: Comportamiento no determinista (✓ 20 puntos)</li>
+                    <li>Pérdida comunicación: Time-outs o CRC errors (✓ 15 puntos)</li>
+                    <li><strong>Score total: 100 puntos → Diagnóstico confirmado</strong></li>
+                </ul>
+            </div>
+            
+            <h2>Tiempo Estimado de Diagnóstico</h2>
+            <ul>
+                <li><strong>Preparación y montaje:</strong> 1 hora</li>
+                <li><strong>Mediciones básicas:</strong> 2 horas</li>
+                <li><strong>Pruebas con carga:</strong> 1.5 horas</li>
+                <li><strong>Análisis de control:</strong> 1 hora</li>
+                <li><strong>Comparativa y conclusiones:</strong> 0.5 horas</li>
+                <li><strong>Total:</strong> 6 horas (1 día laborable)</li>
+            </ul>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <span>Aperture Technologies – Informe Técnico 2025</span>
+            <span>Página 8</span>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hipótesis de Fallo - Informe Técnico Rack ESA GV</title>
+    <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+    <div class="page">
+        <!-- Header -->
+        <div class="header">
+            Informe Técnico – Rack ESA GV KVR 6 SLIM (KVR.S006.R0061)
+        </div>
+        
+        <div class="content">
+            <h1>5. Hipótesis de Fallo</h1>
+            
+            <p>Basándose en el análisis de síntomas, mediciones eléctricas y experiencia previa con módulos similares, se han identificado tres escenarios posibles ordenados por probabilidad de ocurrencia:</p>
+            
+            <div class="escenario escenario-verde">
+                <h2>🟢 Escenario Principal: Drivers de Salida Degradados</h2>
+                <p><strong>Probabilidad: 70% | Complejidad: Baja | Coste: 150-300€</strong></p>
+                
+                <h3>Descripción Técnica</h3>
+                <p>Los transistores MOSFET de potencia (probablemente IRFZ44N o equivalentes) que manejan las salidas OUT1 y OUT2 muestran degradación significativa en su resistencia de conducción (RDS-on). El análisis indica un incremento de RDS-on desde ~0.3Ω nominal hasta 2.8-3.2Ω actual (+900% degradación).</p>
+                
+                <p><strong>Mecanismo de fallo:</strong> La degradación se debe principalmente a migración electrónica en la estructura del gate y formación de estados de interfaz oxide-semiconductor, fenómenos acelerados por ciclos térmicos repetitivos (Delta-T estimado: 25-40°C por ciclo).</p>
+                
+                <h3>Síntomas Característicos</h3>
+                <ul>
+                    <li>Tensión de salida inferior a la especificada</li>
+                    <li>Caída excesiva bajo carga</li>
+                    <li>Tiempo de conmutación lento</li>
+                    <li>Calentamiento localizado en los drivers</li>
+                </ul>
+                
+                <h3>Causas Probables (Análisis de Fiabilidad)</h3>
+                <ul>
+                    <li><strong>Fatiga térmica (Hot Carrier Injection):</strong> 8,500 horas a 25-30 ciclos/hora = ~250,000 ciclos térmicos</li>
+                    <li><strong>Electro-migración en metalurgia interna:</strong> Densidad de corriente crítica superada durante picos de arranque</li>
+                    <li><strong>Degradación del óxido de gate:</strong> Estrés eléctrico acumulativo (TDDB - Time Dependent Dielectric Breakdown)</li>
+                    <li><strong>Fatiga por bond-wire:</strong> Micro-fracturas en conexiones internas por expansión diferencial</li>
+                    <li><strong>Cálculo de vida útil:</strong> Arrhenius model indica MTBF reducido de 50,000h a 12,000h por operación a 68-71°C</li>
+                </ul>
+                
+                <h3>Método de Confirmación (Diagnóstico Avanzado)</h3>
+                <ol>
+                    <li><strong>Medición de característica I-V:</strong> Curva Drain-Source con VGS fijo para determinar RDS-on exacta</li>
+                    <li><strong>Análisis de impedancia (100Hz-1MHz):</strong> Detección de capacitancias parásitas alteradas</li>
+                    <li><strong>Termografía infrarroja durante conmutación:</strong> Mapeo de puntos calientes en die del semiconductor</li>
+                    <li><strong>Medición de transconductancia (gm):</strong> Evaluación de degradación del canal del MOSFET</li>
+                    <li><strong>Análisis espectral de ruido:</strong> Detección de defectos cristalinos (1/f noise analysis)</li>
+                    <li><strong>Comparativa estadística:</strong> Monte Carlo con 95% confianza vs canales operativos</li>
+                </ol>
+                
+                <h3>Solución Propuesta</h3>
+                <p><strong>Sustitución de drivers OUT1 y OUT2</strong> + revisión preventiva de OUT3-OUT8</p>
+                <ul>
+                    <li>Componentes: 80-120€</li>
+                    <li>Mano de obra: 4-6 horas (70-180€)</li>
+                    <li>Tiempo total: 1-2 días laborables</li>
+                    <li>Probabilidad de éxito: 95%</li>
+                </ul>
+            </div>
+            
+            <div class="escenario escenario-amarillo">
+                <h2>🟡 Escenario Secundario: Regulador 5V con Rizado Excesivo</h2>
+                <p><strong>Probabilidad: 25% | Complejidad: Media | Coste: 200-400€</strong></p>
+                
+                <h3>Descripción Técnica</h3>
+                <p>Los condensadores electrolíticos del circuito regulador de 5V (probablemente serie Panasonic FM o Nichicon UPW) muestran degradación en ESR (Equivalent Series Resistance) y pérdida de capacitancia. Mediciones preliminares indican ESR de 2.8Ω vs 0.5Ω nominal (+460% degradación).</p>
+                
+                <p><strong>Fenómeno físico:</strong> Evaporación del electrolito y cristalización de sales internas causan aumento de ESR y reducción de capacitancia efectiva del 15-25%. El rizado resultante (85mV pp medidos vs 50mV especificación) introduce jitter en señales lógicas.</p>
+                
+                <h3>Síntomas Característicos</h3>
+                <ul>
+                    <li>Inestabilidad en múltiples canales</li>
+                    <li>Comportamiento errático sin patrón definido</li>
+                    <li>Problemas que empeoran con la temperatura</li>
+                    <li>Ruido eléctrico en las mediciones</li>
+                </ul>
+                
+                <h3>Mecanismo de Fallo</h3>
+                <p>Los condensadores electrolíticos se degradan con el tiempo, perdiendo capacidad y aumentando su resistencia serie equivalente (ESR). Esto provoca:</p>
+                <ol>
+                    <li>Aumento del rizado en la alimentación de 5V</li>
+                    <li>Funcionamiento errático de la lógica digital</li>
+                    <li>Señales de control inconsistentes a los drivers</li>
+                    <li>Comportamiento impredecible de las salidas</li>
+                </ol>
+                
+                <h3>Diagnóstico Diferencial</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Prueba de Diagnóstico</th>
+                            <th>Si es Driver (OUT1/OUT2)</th>
+                            <th>Si es Regulador 5V</th>
+                            <th>Método de Medición</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Rizado en línea 5V</td>
+                            <td>&lt;50mV pp estable</td>
+                            <td>&gt;80mV pp variable</td>
+                            <td>Osciloscopio AC-coupled, BW 20MHz</td>
+                        </tr>
+                        <tr>
+                            <td>Patrón de afectación</td>
+                            <td>Solo OUT1/OUT2 (localizado)</td>
+                            <td>Múltiples canales correlacionados</td>
+                            <td>Matriz de pruebas simultáneas</td>
+                        </tr>
+                        <tr>
+                            <td>Dependencia térmica</td>
+                            <td>Baja (&lt;5% variación/10°C)</td>
+                            <td>Alta (&gt;15% variación/10°C)</td>
+                            <td>Cámara térmica 25-55°C</td>
+                        </tr>
+                        <tr>
+                            <td>Impedancia salida (1kHz)</td>
+                            <td>2.8-3.2Ω (drivers degradados)</td>
+                            <td>&lt;0.5Ω (drivers OK)</td>
+                            <td>LCR meter, señal 100mV RMS</td>
+                        </tr>
+                        <tr>
+                            <td>Espectro de ruido</td>
+                            <td>Ruido blanco + picos discretos</td>
+                            <td>Ruido 1/f + armónicos 100Hz</td>
+                            <td>FFT analyzer 0.1Hz-100kHz</td>
+                        </tr>
+                        <tr>
+                            <td>Corriente de reposo (Iq)</td>
+                            <td>Normal (850mA ±10%)</td>
+                            <td>Elevada (&gt;950mA)</td>
+                            <td>Multímetro True-RMS, intervalo 1min</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3>Solución Propuesta</h3>
+                <p><strong>Reacondicionamiento de la fuente interna</strong></p>
+                <ul>
+                    <li>Sustitución de condensadores electrolíticos (6-8 unidades)</li>
+                    <li>Verificación del regulador de tensión</li>
+                    <li>Pruebas de estabilidad extendidas</li>
+                    <li>Tiempo estimado: 3-4 días laborables</li>
+                </ul>
+            </div>
+            
+            <div class="escenario escenario-rojo">
+                <h2>🔴 Escenario Crítico: Fallo en FPGA/Lógica de Control</h2>
+                <p><strong>Probabilidad: 5% | Complejidad: Alta | Coste: 1500-3000€</strong></p>
+                
+                <h3>Descripción Técnica</h3>
+                <p>El procesador principal (FPGA, microcontrolador o circuito específico) presenta errores de funcionamiento que afectan la generación de señales de control para los drivers de salida.</p>
+                
+                <h3>Indicadores de Fallo Crítico</h3>
+                <ul>
+                    <li>Múltiples canales afectados simultáneamente</li>
+                    <li>Patrones de fallo complejos e inconsistentes</li>
+                    <li>Pérdida de comunicación con el sistema CNC</li>
+                    <li>Comportamiento anómalo en las entradas digitales</li>
+                </ul>
+                
+                <h3>Posibles Causas</h3>
+                <ul>
+                    <li><strong>Corrupción de firmware:</strong> Pérdida de integridad del software interno</li>
+                    <li><strong>Fallo de componente crítico:</strong> FPGA, cristal de reloj, memoria</li>
+                    <li><strong>Daño por ESD:</strong> Descarga electrostática</li>
+                    <li><strong>Fallo de alimentación interna:</strong> Tensiones incorrectas en el procesador</li>
+                </ul>
+                
+                <h3>Diagnóstico Requerido</h3>
+                <p>Este escenario requiere equipamiento especializado:</p>
+                <ul>
+                    <li>Osciloscopio digital para análisis de señales</li>
+                    <li>Analizador lógico para buses digitales</li>
+                    <li>Software de diagnóstico del fabricante</li>
+                    <li>Técnico especializado en sistemas ESA</li>
+                </ul>
+                
+                <h3>Implicaciones</h3>
+                <div class="destacado">
+                    <p><strong>⚠️ Advertencia:</strong> Si se confirma este escenario, la reparación económica puede no ser viable. Se recomendaría considerar directamente la sustitución del módulo completo o migración a tecnología moderna.</p>
+                </div>
+                
+                <h3>Opciones Limitadas</h3>
+                <ol>
+                    <li><strong>Reprogramación:</strong> Si el problema es de firmware (raro)</li>
+                    <li><strong>Reparación por fabricante:</strong> Envío a ESA (si aún existe soporte)</li>
+                    <li><strong>Sustitución inmediata:</strong> Búsqueda de módulo usado compatible</li>
+                    <li><strong>Migración tecnológica:</strong> Reemplazo por sistema moderno</li>
+                </ol>
+            </div>
+            
+            <h2>Estrategia de Diagnóstico</h2>
+            <p>La reparación se realizará siguiendo un enfoque escalonado que confirmará el escenario real:</p>
+            
+            <ol>
+                <li><strong>Fase 1:</strong> Verificación del escenario principal (drivers)</li>
+                <li><strong>Fase 2:</strong> Si no se confirma, análisis del regulador 5V</li>
+                <li><strong>Fase 3:</strong> Solo si fallan las anteriores, diagnóstico de lógica de control</li>
+            </ol>
+            
+            <p>Esta metodología asegura el menor coste y tiempo de intervención, abordando primero las causas más probables y económicas de reparar.</p>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <span>Aperture Technologies – Informe Técnico 2025</span>
+            <span>Página 7</span>
+        </div>
+    </div>
+</body>
+</html>

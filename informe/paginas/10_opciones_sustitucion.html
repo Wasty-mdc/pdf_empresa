@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opciones de Sustitución - Informe Técnico Rack ESA GV</title>
+    <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+    <div class="page">
+        <!-- Header -->
+        <div class="header">
+            Informe Técnico – Rack ESA GV KVR 6 SLIM (KVR.S006.R0061)
+        </div>
+        
+        <div class="content">
+            <h1>8. Opciones de Sustitución</h1>
+            
+            <p>En caso de que la reparación no sea viable o exitosa, se han identificado cuatro alternativas de sustitución, cada una con diferentes implicaciones técnicas, económicas y temporales.</p>
+            
+            <h2>Opción 1: Rack Usado Compatible</h2>
+            
+            <div class="escenario escenario-verde">
+                <h3>🟢 Sustitución Directa - Menor Impacto</h3>
+                <p><strong>Reemplazo por módulo ESA equivalente de segunda mano</strong></p>
+            </div>
+            
+            <h3>Modelos Compatibles Identificados</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Modelo</th>
+                        <th>Disponibilidad</th>
+                        <th>Precio Estimado</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>KVR.S006.R0061 (idéntico)</td>
+                        <td>Baja</td>
+                        <td>800-1200€</td>
+                        <td>Usado, testado</td>
+                    </tr>
+                    <tr>
+                        <td>KVR.S006.R0062 (rev. posterior)</td>
+                        <td>Media</td>
+                        <td>600-900€</td>
+                        <td>Usado, funcional</td>
+                    </tr>
+                    <tr>
+                        <td>KVR.S008.R0061 (8 slots)</td>
+                        <td>Media</td>
+                        <td>400-700€</td>
+                        <td>Usado, adaptación req.</td>
+                    </tr>
+                    <tr>
+                        <td>KVR.M006.R0061 (versión estándar)</td>
+                        <td>Alta</td>
+                        <td>450-650€</td>
+                        <td>Usado, compatible</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>Ventajas</h3>
+            <ul>
+                <li><strong>Integración inmediata:</strong> Sin necesidad de modificar software o cableado</li>
+                <li><strong>Funcionalidad completa:</strong> Todas las características originales</li>
+                <li><strong>Riesgo técnico bajo:</strong> Tecnología conocida y probada</li>
+                <li><strong>Implementación rápida:</strong> 1-2 días de trabajo</li>
+            </ul>
+            
+            <h3>Inconvenientes</h3>
+            <ul>
+                <li><strong>Disponibilidad limitada:</strong> Búsqueda puede requerir 2-6 semanas</li>
+                <li><strong>Sin garantía de fabricante:</strong> Solo garantía del vendedor (3-6 meses)</li>
+                <li><strong>Historial desconocido:</strong> Posibles problemas futuros impredecibles</li>
+                <li><strong>Precio elevado:</strong> Coste superior a la reparación</li>
+            </ul>
+            
+            <h3>Tiempo de Implementación</h3>
+            <ul>
+                <li><strong>Búsqueda y adquisición:</strong> 1-6 semanas</li>
+                <li><strong>Recepción y verificación:</strong> 2-3 días</li>
+                <li><strong>Instalación y pruebas:</strong> 1 día</li>
+                <li><strong>Total:</strong> 1-7 semanas</li>
+            </ul>
+            
+            <h2>Opción 2: Rack Nuevo</h2>
+            
+            <div class="escenario escenario-amarillo">
+                <h3>🟡 Sustitución por Módulo Nuevo</h3>
+                <p><strong>Adquisición de rack ESA nuevo (si disponible) o equivalente moderno</strong></p>
+            </div>
+            
+            <h3>Alternativas Nuevas</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Opción</th>
+                        <th>Fabricante</th>
+                        <th>Precio</th>
+                        <th>Compatibilidad</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ESA GV KVR nuevo (si disponible)</td>
+                        <td>ESA Automation</td>
+                        <td>1800-2500€</td>
+                        <td>100%</td>
+                    </tr>
+                    <tr>
+                        <td>Beckhoff EL2008</td>
+                        <td>Beckhoff</td>
+                        <td>1200-1600€</td>
+                        <td>95% con adaptación</td>
+                    </tr>
+                    <tr>
+                        <td>Phoenix Contact Axioline</td>
+                        <td>Phoenix Contact</td>
+                        <td>1500-2000€</td>
+                        <td>90% con gateway</td>
+                    </tr>
+                    <tr>
+                        <td>WAGO 750 Series</td>
+                        <td>WAGO</td>
+                        <td>1000-1400€</td>
+                        <td>85% con programación</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>Consideraciones Técnicas</h3>
+            <ul>
+                <li><strong>Protocolo de comunicación:</strong> Puede requerir gateway o convertidor</li>
+                <li><strong>Configuración eléctrica:</strong> Posibles diferencias en niveles de tensión</li>
+                <li><strong>Software de configuración:</strong> Nuevas herramientas de programación</li>
+                <li><strong>Documentación:</strong> Necesidad de actualizar esquemas y manuales</li>
+            </ul>
+            
+            <h2>Opción 3: Emulación con PLC/Microcontrolador</h2>
+            
+            <div class="escenario escenario-verde">
+                <h3>🟢 Solución Modernizada - Enfoque Ingenieril</h3>
+                <p><strong>Desarrollo de emulador basado en PLC moderno</strong></p>
+            </div>
+            
+            <h3>Arquitectura Propuesta</h3>
+            <ol>
+                <li><strong>PLC principal:</strong> Siemens S7-1200 o equivalente</li>
+                <li><strong>Módulos de E/S:</strong> 64 canales digitales distribuidos</li>
+                <li><strong>Gateway de comunicación:</strong> Traductor de protocolo ESA</li>
+                <li><strong>Interfaz de diagnóstico:</strong> Panel HMI para monitorización</li>
+            </ol>
+            
+            <h3>Desglose de Costes</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Componente</th>
+                        <th>Especificación</th>
+                        <th>Precio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>PLC base</td>
+                        <td>Siemens S7-1214C</td>
+                        <td>350-450€</td>
+                    </tr>
+                    <tr>
+                        <td>Módulos E/S digitales</td>
+                        <td>4x SM1223 (16 canales c/u)</td>
+                        <td>600-800€</td>
+                    </tr>
+                    <tr>
+                        <td>Gateway comunicación</td>
+                        <td>Desarrollo específico</td>
+                        <td>200-400€</td>
+                    </tr>
+                    <tr>
+                        <td>Fuente alimentación</td>
+                        <td>24VDC, 5A</td>
+                        <td>80-120€</td>
+                    </tr>
+                    <tr>
+                        <td>Armario y cableado</td>
+                        <td>Material eléctrico</td>
+                        <td>150-250€</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Material total</strong></td>
+                        <td><strong>-</strong></td>
+                        <td><strong>1380-2020€</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Desarrollo software</td>
+                        <td>40-60 horas ingeniería</td>
+                        <td>2000-3000€</td>
+                    </tr>
+                    <tr>
+                        <td>Pruebas e integración</td>
+                        <td>20-30 horas</td>
+                        <td>1000-1500€</td>
+                    </tr>
+                    <tr>
+                        <td><strong>TOTAL OPCIÓN 3</strong></td>
+                        <td><strong>-</strong></td>
+                        <td><strong>4380-6520€</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>Ventajas Estratégicas</h3>
+            <ul>
+                <li><strong>Tecnología moderna:</strong> Soporte a largo plazo garantizado</li>
+                <li><strong>Flexibilidad:</strong> Posibilidad de mejoras y expansiones futuras</li>
+                <li><strong>Diagnóstico avanzado:</strong> Herramientas de monitorización modernas</li>
+                <li><strong>Independencia:</strong> No dependencia de tecnología obsoleta</li>
+            </ul>
+            
+            <h2>Opción 4: Migración a Sistema CNC + PLC Moderno</h2>
+            
+            <div class="escenario escenario-amarillo">
+                <h3>🟡 Renovación Integral del Sistema</h3>
+                <p><strong>Actualización completa incluyendo control CNC</strong></p>
+            </div>
+            
+            <h3>Alcance de la Modernización</h3>
+            <ul>
+                <li><strong>Nuevo control CNC:</strong> Siemens Sinumerik, Fanuc, o Heidenhain</li>
+                <li><strong>PLC integrado:</strong> Sistema unificado de control</li>
+                <li><strong>E/S distribuidas:</strong> Módulos descentralizados en máquina</li>
+                <li><strong>Red industrial:</strong> Ethernet/IP o Profinet</li>
+                <li><strong>HMI moderna:</strong> Pantallas táctiles de última generación</li>
+            </ul>
+            
+            <h3>Estimación de Inversión</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Sistema</th>
+                        <th>Rango de Precio</th>
+                        <th>Tiempo Implementación</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Siemens Sinumerik ONE</td>
+                        <td>15,000-25,000€</td>
+                        <td>6-10 semanas</td>
+                    </tr>
+                    <tr>
+                        <td>Fanuc 31i-B5</td>
+                        <td>12,000-20,000€</td>
+                        <td>5-8 semanas</td>
+                    </tr>
+                    <tr>
+                        <td>Heidenhain TNC7</td>
+                        <td>18,000-28,000€</td>
+                        <td>8-12 semanas</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>Beneficios a Largo Plazo</h3>
+            <ul>
+                <li><strong>Productividad mejorada:</strong> 15-25% de incremento estimado</li>
+                <li><strong>Precisión superior:</strong> Mejora en tolerancias de mecanizado</li>
+                <li><strong>Mantenimiento reducido:</strong> Sistemas más fiables</li>
+                <li><strong>Soporte garantizado:</strong> 10-15 años de vida útil</li>
+            </ul>
+            
+            <h2>Matriz de Decisión</h2>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Factor</th>
+                        <th>Peso</th>
+                        <th>Rack Usado</th>
+                        <th>Rack Nuevo</th>
+                        <th>Emulación PLC</th>
+                        <th>CNC Moderno</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Coste inicial</td>
+                        <td>25%</td>
+                        <td>7/10</td>
+                        <td>4/10</td>
+                        <td>5/10</td>
+                        <td>2/10</td>
+                    </tr>
+                    <tr>
+                        <td>Tiempo implementación</td>
+                        <td>20%</td>
+                        <td>6/10</td>
+                        <td>8/10</td>
+                        <td>7/10</td>
+                        <td>3/10</td>
+                    </tr>
+                    <tr>
+                        <td>Fiabilidad futura</td>
+                        <td>20%</td>
+                        <td>5/10</td>
+                        <td>8/10</td>
+                        <td>9/10</td>
+                        <td>10/10</td>
+                    </tr>
+                    <tr>
+                        <td>Soporte técnico</td>
+                        <td>15%</td>
+                        <td>3/10</td>
+                        <td>7/10</td>
+                        <td>9/10</td>
+                        <td>10/10</td>
+                    </tr>
+                    <tr>
+                        <td>Flexibilidad</td>
+                        <td>10%</td>
+                        <td>4/10</td>
+                        <td>6/10</td>
+                        <td>8/10</td>
+                        <td>10/10</td>
+                    </tr>
+                    <tr>
+                        <td>ROI a 5 años</td>
+                        <td>10%</td>
+                        <td>6/10</td>
+                        <td>7/10</td>
+                        <td>8/10</td>
+                        <td>9/10</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Puntuación Total</strong></td>
+                        <td><strong>100%</strong></td>
+                        <td><strong>5.8/10</strong></td>
+                        <td><strong>6.8/10</strong></td>
+                        <td><strong>7.4/10</strong></td>
+                        <td><strong>7.0/10</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <span>Aperture Technologies – Informe Técnico 2025</span>
+            <span>Página 10</span>
+        </div>
+    </div>
+</body>
+</html>

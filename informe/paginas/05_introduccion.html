@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introducción - Informe Técnico Rack ESA GV</title>
+    <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+    <div class="page">
+        <!-- Header -->
+        <div class="header">
+            Informe Técnico – Rack ESA GV KVR 6 SLIM (KVR.S006.R0061)
+        </div>
+        
+        <div class="content">
+            <h1>3. Introducción</h1>
+            
+            <h2>¿Qué es el Rack ESA GV KVR 6 SLIM?</h2>
+            
+            <p>El ESA GV RACK KVR 6 SLIM es un módulo de entrada/salida industrial diseñado para aplicaciones de control automático en entornos industriales exigentes. Este dispositivo actúa como interfaz entre el sistema de control central (CNC) y los actuadores/sensores de campo.</p>
+            
+            <h3>Especificaciones Técnicas Principales</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Parámetro</th>
+                        <th>Especificación</th>
+                        <th>Observaciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Modelo</td>
+                        <td>KVR.S006.R0061</td>
+                        <td>Versión SLIM de 6 slots</td>
+                    </tr>
+                    <tr>
+                        <td>Alimentación principal</td>
+                        <td>24 VDC ±10%</td>
+                        <td>Típica en automatización industrial</td>
+                    </tr>
+                    <tr>
+                        <td>Regulación interna</td>
+                        <td>5 VDC</td>
+                        <td>Para alimentación de lógica digital</td>
+                    </tr>
+                    <tr>
+                        <td>Entradas/Salidas</td>
+                        <td>64 canales digitales</td>
+                        <td>Configurables según aplicación</td>
+                    </tr>
+                    <tr>
+                        <td>Protocolo de comunicación</td>
+                        <td>Propietario ESA</td>
+                        <td>Compatible con sistemas CNC ESA</td>
+                    </tr>
+                    <tr>
+                        <td>Temperatura operativa</td>
+                        <td>0°C a +60°C</td>
+                        <td>Ambiente industrial estándar</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h2>Función en el Sistema CNC</h2>
+            
+            <p>El rack KVR desempeña un papel crítico como traductor entre las señales digitales del control numérico y los dispositivos físicos de la máquina. Su correcto funcionamiento es esencial para:</p>
+            
+            <h3>Operaciones de Control</h3>
+            <ul>
+                <li><strong>Gestión de herramientas:</strong> Control de cambio automático de herramientas</li>
+                <li><strong>Sistemas de seguridad:</strong> Monitorización de barreras, paradas de emergencia</li>
+                <li><strong>Control de proceso:</strong> Activación de refrigerante, aspiración de viruta</li>
+                <li><strong>Posicionamiento:</strong> Control de ejes auxiliares y dispositivos de sujeción</li>
+                <li><strong>Retroalimentación:</strong> Lectura de sensores de posición y estado</li>
+            </ul>
+            
+            <h3>Arquitectura del Sistema</h3>
+            <p>El rack se integra en una arquitectura distribuida donde:</p>
+            
+            <ol>
+                <li><strong>Control Central (CNC):</strong> Genera comandos de alto nivel</li>
+                <li><strong>Rack KVR (este módulo):</strong> Traduce comandos a señales digitales</li>
+                <li><strong>Actuadores de campo:</strong> Ejecutan las acciones físicas</li>
+                <li><strong>Sensores:</strong> Proporcionan retroalimentación al sistema</li>
+            </ol>
+            
+            <h2>Importancia del Correcto Funcionamiento</h2>
+            
+            <div class="destacado">
+                <h3>Impacto Crítico en la Producción</h3>
+                <p>Un fallo en el rack KVR no es un problema menor. Su mal funcionamiento puede provocar:</p>
+            </div>
+            
+            <h3>Consecuencias Inmediatas</h3>
+            <ul>
+                <li><strong>Paros de producción:</strong> La máquina no puede operar de forma segura</li>
+                <li><strong>Pérdida de precisión:</strong> Señales erróneas afectan la calidad del mecanizado</li>
+                <li><strong>Riesgos de seguridad:</strong> Fallo en sistemas de protección</li>
+                <li><strong>Daños en herramental:</strong> Operaciones incorrectas pueden dañar herramientas costosas</li>
+            </ul>
+            
+            <h3>Impacto Económico</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Concepto</th>
+                        <th>Coste Estimado/Hora</th>
+                        <th>Observaciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Tiempo de máquina perdido</td>
+                        <td>120-180 €/hora</td>
+                        <td>Según capacidad de producción</td>
+                    </tr>
+                    <tr>
+                        <td>Mano de obra ociosa</td>
+                        <td>25-35 €/hora</td>
+                        <td>Operario + preparador</td>
+                    </tr>
+                    <tr>
+                        <td>Retrasos en entregas</td>
+                        <td>Variable</td>
+                        <td>Penalizaciones contractuales</td>
+                    </tr>
+                    <tr>
+                        <td>Coste de diagnóstico</td>
+                        <td>80-120 €/hora</td>
+                        <td>Técnico especializado</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>Factores de Obsolescencia</h3>
+            <p>Es importante considerar que el modelo KVR 6 SLIM corresponde a una generación anterior de controladores industriales. Esto implica:</p>
+            
+            <ul>
+                <li><strong>Disponibilidad limitada:</strong> Recambios cada vez más escasos</li>
+                <li><strong>Soporte técnico reducido:</strong> Menos técnicos especializados</li>
+                <li><strong>Incompatibilidad creciente:</strong> Dificultades con sistemas modernos</li>
+                <li><strong>Coste de mantenimiento creciente:</strong> Intervenciones más complejas y costosas</li>
+            </ul>
+            
+            <p>Esta situación refuerza la importancia de abordar el problema actual de forma eficiente, mientras se planifica una estrategia de modernización a medio plazo.</p>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <span>Aperture Technologies – Informe Técnico 2025</span>
+            <span>Página 5</span>
+        </div>
+    </div>
+</body>
+</html>

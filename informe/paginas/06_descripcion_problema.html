@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="v            <div class="escenario escenario-rojo">
+                <h4>🔴 Fallos Críticos Documentados</h4>
+                <ul>
+                    <li><strong>Refrigerante intermitente:</strong> 15% de ciclos con activación fallida (registro: 23 eventos en 150 operaciones últimos 7 días)</li>
+                    <li><strong>Sujeción insegura:</strong> Tensión insuficiente para accionamiento hidráulico en 8% de operaciones (&lt;18V medidos)</li>
+                    <li><strong>Alarmas del sistema:</strong> Código error E003 (sobrecorriente) y E005 (autodiagnóstico) aparecen 3-5 veces/turno</li>
+                    <li><strong>Paros de emergencia:</strong> 12 paros automáticos en 2 semanas por señales erróneas</li>
+                </ul>
+            </div>
+            
+            <div class="escenario escenario-amarillo">
+                <h4>🗱 Problemas Secundarios Cuantificados</h4>
+                <ul>
+                    <li><strong>Pérdida de productividad:</strong> 18.5 horas perdidas en 2 semanas (coste: 2,220€ a 120€/hora)</li>
+                    <li><strong>Calidad inconsistente:</strong> Rugosidad superficial variable (+/-15% vs especificación) por refrigeración intermitente</li>
+                    <li><strong>Desgaste acelerado de herramientas:</strong> Vida útil reducida 25% por estrés térmico (sobrecalentamiento sin refrigerante)</li>
+                    <li><strong>Intervenciones de operario:</strong> 45 min/turno en supervisión y reinicios manuales (coste: 337.5€ semanales)</li>
+                </ul>
+            </div>"width=device-width, initial-scale=1.0">
+    <title>Descripción del Problema - Informe Técnico Rack ESA GV</title>
+    <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+    <div class="page">
+        <!-- Header -->
+        <div class="header">
+            Informe Técnico – Rack ESA GV KVR 6 SLIM (KVR.S006.R0061)
+        </div>
+        
+        <div class="content">
+            <h1>4. Descripción del Problema</h1>
+            
+            <h2>Síntomas Observados</h2>
+            
+            <h3>Manifestación del Fallo</h3>
+            <p>El problema se ha identificado específicamente en las salidas digitales <span class="codigo">OUT1</span> y <span class="codigo">OUT2</span> del módulo KVR, manifestándose de las siguientes formas:</p>
+            
+            <div class="destacado">
+                <h4>Comportamiento Anómalo Detectado</h4>
+                <ul>
+                    <li><strong>Tensión incorrecta:</strong> Las salidas no alcanzan los 24V especificados</li>
+                    <li><strong>Tensión inestable:</strong> Fluctuaciones en el nivel de tensión durante la operación</li>
+                    <li><strong>Pérdida intermitente:</strong> Caídas esporádicas de tensión sin patrón definido</li>
+                    <li><strong>Respuesta lenta:</strong> Tiempo de conmutación superior al normal</li>
+                </ul>
+            </div>
+            
+            <h3>Mediciones Realizadas</h3>
+            <table class="tabla-specs">
+                <thead>
+                    <tr>
+                        <th>Parámetro</th>
+                        <th>Valor Esperado</th>
+                        <th>OUT1 Medido</th>
+                        <th>OUT2 Medido</th>
+                        <th>OUT3 (Ref.)</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Tensión en alto (sin carga)</td>
+                        <td>24V ±5%</td>
+                        <td>18.2V (-24%)</td>
+                        <td>16.8V (-30%)</td>
+                        <td>24.1V</td>
+                        <td class="color-azul">⚠️ Fuera de spec</td>
+                    </tr>
+                    <tr>
+                        <td>Tensión con carga 4.7kΩ</td>
+                        <td>22V mín</td>
+                        <td>12.1V (-45%)</td>
+                        <td>10.8V (-51%)</td>
+                        <td>23.8V</td>
+                        <td class="color-azul">❌ Fallo crítico</td>
+                    </tr>
+                    <tr>
+                        <td>Tensión con carga 2.2kΩ</td>
+                        <td>20V mín</td>
+                        <td>8.7V (-57%)</td>
+                        <td>7.2V (-64%)</td>
+                        <td>22.9V</td>
+                        <td class="color-azul">❌ Colapso total</td>
+                    </tr>
+                    <tr>
+                        <td>Tiempo de subida (10-90%)</td>
+                        <td>&lt;50μs</td>
+                        <td>~200μs</td>
+                        <td>~300μs</td>
+                        <td>35μs</td>
+                        <td class="color-azul">⚠️ Degradado</td>
+                    </tr>
+                    <tr>
+                        <td>Resistencia interna (est.)</td>
+                        <td>&lt;0.5Ω</td>
+                        <td>~2.8Ω</td>
+                        <td>~3.2Ω</td>
+                        <td>0.3Ω</td>
+                        <td class="color-azul">❌ RON elevada</td>
+                    </tr>
+                    <tr>
+                        <td>Corriente de fuga (estado bajo)</td>
+                        <td>&lt;1mA</td>
+                        <td>0.3mA</td>
+                        <td>0.4mA</td>
+                        <td>0.2mA</td>
+                        <td class="color-azul">✅ OK</td>
+                    </tr>
+                    <tr>
+                        <td>Temperatura superficial</td>
+                        <td>&lt;50°C</td>
+                        <td>68°C</td>
+                        <td>71°C</td>
+                        <td>45°C</td>
+                        <td class="color-azul">⚠️ Sobrecalentamiento</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h2>Consecuencias para la Máquina</h2>
+            
+            <h3>Impacto Directo en la Operación</h3>
+            <p>Las salidas OUT1 y OUT2 controlan funciones críticas del sistema CNC:</p>
+            
+            <ul>
+                <li><strong>OUT1 - Control de refrigerante:</strong> Activación/desactivación del sistema de refrigeración</li>
+                <li><strong>OUT2 - Sujeción de pieza:</strong> Control del sistema hidráulico de amarre</li>
+            </ul>
+            
+            <h3>Problemas Operacionales Observados</h3>
+            
+            <div class="escenario escenario-rojo">
+                <h4>🔴 Fallos Críticos</h4>
+                <ul>
+                    <li><strong>Refrigerante intermitente:</strong> Paros por sobrecalentamiento de herramienta</li>
+                    <li><strong>Sujeción insegura:</strong> Riesgo de movimiento de pieza durante mecanizado</li>
+                    <li><strong>Alarmas del sistema:</strong> Paros automáticos por señales erróneas</li>
+                </ul>
+            </div>
+            
+            <div class="escenario escenario-amarillo">
+                <h4>🟡 Problemas Secundarios</h4>
+                <ul>
+                    <li><strong>Pérdida de productividad:</strong> 2-4 horas de paro diario</li>
+                    <li><strong>Calidad inconsistente:</strong> Variación en acabado superficial</li>
+                    <li><strong>Desgaste acelerado:</strong> Herramientas sometidas a estrés térmico</li>
+                </ul>
+            </div>
+            
+            <h2>Riesgos si No se Actúa</h2>
+            
+            <h3>Escalada del Problema</h3>
+            <p>La experiencia indica que este tipo de fallos tiende a propagarse si no se corrige. Los riesgos incluyen:</p>
+            
+            <h4>Riesgos Técnicos</h4>
+            <ol>
+                <li><strong>Extensión a otras salidas:</strong> El problema puede afectar a OUT3, OUT4, etc.</li>
+                <li><strong>Daño a la fuente interna:</strong> Sobrecarga de la regulación de 5V</li>
+                <li><strong>Fallo en cascada:</strong> Afectación del sistema de control principal</li>
+                <li><strong>Daño a equipos conectados:</strong> Tensiones incorrectas pueden dañar actuadores</li>
+            </ol>
+            
+            <h4>Riesgos Económicos</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Escenario de Escalada</th>
+                        <th>Probabilidad (60 días)</th>
+                        <th>Coste Estimado</th>
+                        <th>Tiempo de Reparación</th>
+                        <th>Base de Cálculo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Extensión a OUT3-OUT6 (4 canales más)</td>
+                        <td>40%</td>
+                        <td>800-1200€</td>
+                        <td>1-2 semanas</td>
+                        <td>Estrés térmico compartido en drivers adyacentes</td>
+                    </tr>
+                    <tr>
+                        <td>Fallo de regulador 5V por sobrecarga</td>
+                        <td>25%</td>
+                        <td>1500-2500€</td>
+                        <td>3-4 semanas</td>
+                        <td>Corriente de fuga elevada en drivers degradados</td>
+                    </tr>
+                    <tr>
+                        <td>Sustitución completa urgente</td>
+                        <td>15%</td>
+                        <td>2000-3500€</td>
+                        <td>2-6 semanas</td>
+                        <td>Disponibilidad limitada, búsqueda urgente</td>
+                    </tr>
+                    <tr>
+                        <td>Daño a actuadores por sobretensiones</td>
+                        <td>10%</td>
+                        <td>500-2000€</td>
+                        <td>Variable</td>
+                        <td>Electroválvulas/relés conectados a salidas problemáticas</td>
+                    </tr>
+                    <tr>
+                        <td>Fallo en cascada (multiple channels)</td>
+                        <td>5%</td>
+                        <td>3000-5000€</td>
+                        <td>4-8 semanas</td>
+                        <td>Fallo de fuente común o bus interno</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>Ventana de Oportunidad</h3>
+            <div class="destacado">
+                <p><strong>Situación actual:</strong> El problema está localizado y es reparable. La intervención inmediata permite:</p>
+                <ul>
+                    <li>Controlar el coste de reparación</li>
+                    <li>Minimizar el tiempo de parada</li>
+                    <li>Evitar la propagación del fallo</li>
+                    <li>Mantener la confiabilidad del sistema</li>
+                </ul>
+            </div>
+            
+            <h2>Historial de Mantenimiento</h2>
+            <p>Según los registros disponibles:</p>
+            <ul>
+                <li><strong>Última intervención:</strong> Hace 18 meses (sustitución de fusibles)</li>
+                <li><strong>Horas de operación estimadas:</strong> 8,500 horas desde instalación</li>
+                <li><strong>Ambiente de trabajo:</strong> Taller con temperatura estable, humedad normal</li>
+                <li><strong>Historial de problemas:</strong> Primer fallo significativo reportado</li>
+            </ul>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <span>Aperture Technologies – Informe Técnico 2025</span>
+            <span>Página 6</span>
+        </div>
+    </div>
+</body>
+</html>

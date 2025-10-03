@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anexo A - Diagrama de Flujo - Informe Técnico Rack ESA GV</title>
+    <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+    <div class="page">
+        <!-- Header -->
+        <div class="header">
+            Informe Técnico – Rack ESA GV KVR 6 SLIM (KVR.S006.R0061)
+        </div>
+        
+        <div class="content">
+            <h1>Anexo A: Diagrama de Flujo del Rack</h1>
+            
+            <h2>Esquema Funcional del Sistema</h2>
+            
+            <p>El siguiente diagrama representa la arquitectura interna del rack ESA GV KVR 6 SLIM, mostrando el flujo de señales desde la entrada de alimentación hasta las salidas digitales, incluyendo los puntos críticos donde se ha identificado el fallo.</p>
+            
+            <div class="diagrama-container">
+                <h3 style="text-align: center; margin-bottom: 20px;">Arquitectura Interna - Rack KVR.S006.R0061</h3>
+                
+                <!-- Incluir el diagrama SVG -->
+                <div style="text-align: center; margin: 30px 0;">
+                    <img src="../assets/diagrama_rack_detallado.svg" alt="Diagrama detallado del rack ESA GV" style="max-width: 100%; height: auto; border: 1px solid #ccc; border-radius: 5px;">
+                </div>
+            </div>
+            
+            <h2>Descripción de Componentes Principales</h2>
+            
+            <h3>Bloque de Alimentación</h3>
+            <div class="destacado">
+                <h4>🔌 Entrada de Alimentación (24 VDC)</h4>
+                <ul>
+                    <li><strong>Tensión nominal:</strong> 24 VDC ±10% (21.6V - 26.4V)</li>
+                    <li><strong>Consumo máximo:</strong> 3.5A con todas las salidas activas</li>
+                    <li><strong>Protección:</strong> Fusible de entrada 5A + supresores de transitorios</li>
+                    <li><strong>Estado actual:</strong> ✅ Funcionamiento correcto verificado</li>
+                </ul>
+            </div>
+            
+            <h3>Regulador Interno de 5V</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Parámetro</th>
+                        <th>Especificación</th>
+                        <th>Estado Actual</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Tensión de salida</td>
+                        <td>5.0V ±5%</td>
+                        <td>4.98V (dentro de spec)</td>
+                    </tr>
+                    <tr>
+                        <td>Corriente máxima</td>
+                        <td>1.5A</td>
+                        <td>0.8A (consumo actual)</td>
+                    </tr>
+                    <tr>
+                        <td>Rizado máximo</td>
+                        <td>&lt;50mV pp</td>
+                        <td>35mV pp (aceptable)</td>
+                    </tr>
+                    <tr>
+                        <td>Eficiencia</td>
+                        <td>&gt;85%</td>
+                        <td>~87% (estimado)</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>FPGA/Lógica de Control</h3>
+            <div class="escenario escenario-verde">
+                <h4>🟢 Procesador Principal - Estado Operativo</h4>
+                <ul>
+                    <li><strong>Función:</strong> Decodificación de comandos del CNC y generación de señales de control</li>
+                    <li><strong>Protocolo:</strong> Comunicación serie propietaria ESA</li>
+                    <li><strong>Frecuencia de reloj:</strong> 25 MHz</li>
+                    <li><strong>Estado actual:</strong> Comunicación activa, respuesta a comandos normal</li>
+                </ul>
+            </div>
+            
+            <h2>Análisis del Fallo Identificado</h2>
+            
+            <h3>Localización del Problema</h3>
+            <p>El diagrama de flujo permite identificar claramente la localización del fallo:</p>
+            
+            <div class="escenario escenario-rojo">
+                <h4>🔴 Punto de Fallo: Drivers de Salida OUT1/OUT2</h4>
+                <p>Los drivers de potencia que manejan las salidas digitales OUT1 y OUT2 presentan degradación en su capacidad de conmutación, evidenciada por:</p>
+                <ul>
+                    <li>Tensión de salida inferior a la especificada</li>
+                    <li>Caída excesiva bajo carga</li>
+                    <li>Tiempo de respuesta aumentado</li>
+                </ul>
+            </div>
+            
+            <h3>Flujo de Señales Afectado</h3>
+            <ol>
+                <li><strong>Comando CNC:</strong> ✅ Recepción correcta por la lógica de control</li>
+                <li><strong>Decodificación:</strong> ✅ Procesamiento adecuado por la FPGA</li>
+                <li><strong>Señal de control:</strong> ✅ Generación correcta hacia drivers</li>
+                <li><strong>Amplificación:</strong> ❌ <strong>FALLO AQUÍ</strong> - Drivers OUT1/OUT2 degradados</li>
+                <li><strong>Salida final:</strong> ❌ Tensión incorrecta en bornes OUT1/OUT2</li>
+            </ol>
+            
+            <h2>Puntos de Medición y Verificación</h2>
+            
+            <h3>Ubicación de Puntos de Test</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Punto</th>
+                        <th>Ubicación</th>
+                        <th>Parámetro</th>
+                        <th>Valor Esperado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>TP1</td>
+                        <td>Entrada de alimentación</td>
+                        <td>VDC entrada</td>
+                        <td>24V ±10%</td>
+                    </tr>
+                    <tr>
+                        <td>TP2</td>
+                        <td>Salida regulador 5V</td>
+                        <td>VDC regulada</td>
+                        <td>5.0V ±5%</td>
+                    </tr>
+                    <tr>
+                        <td>TP3</td>
+                        <td>Entrada driver OUT1</td>
+                        <td>Señal de control</td>
+                        <td>0V/5V lógica</td>
+                    </tr>
+                    <tr>
+                        <td>TP4</td>
+                        <td>Salida driver OUT1</td>
+                        <td>VDC salida</td>
+                        <td>24V ±5% sin carga</td>
+                    </tr>
+                    <tr>
+                        <td>TP5</td>
+                        <td>Entrada driver OUT2</td>
+                        <td>Señal de control</td>
+                        <td>0V/5V lógica</td>
+                    </tr>
+                    <tr>
+                        <td>TP6</td>
+                        <td>Salida driver OUT2</td>
+                        <td>VDC salida</td>
+                        <td>24V ±5% sin carga</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h2>Componentes Críticos para Reparación</h2>
+            
+            <h3>Drivers de Salida (Componentes a Sustituir)</h3>
+            <div class="destacado">
+                <p><strong>Identificación de componentes:</strong></p>
+                <ul>
+                    <li><strong>Driver OUT1:</strong> IC101 - Transistor de potencia tipo MOSFET</li>
+                    <li><strong>Driver OUT2:</strong> IC102 - Transistor de potencia tipo MOSFET</li>
+                    <li><strong>Resistencias de gate:</strong> R101, R102 (limitación de corriente)</li>
+                    <li><strong>Diodos de protección:</strong> D101, D102 (supresión de transitorios)</li>
+                </ul>
+            </div>
+            
+            <h3>Componentes Auxiliares de Verificación</h3>
+            <ul>
+                <li><strong>Condensadores de desacoplo:</strong> C101-C104 (filtrado local de alimentación)</li>
+                <li><strong>Resistencias pull-up/pull-down:</strong> R103-R106 (definición de estados lógicos)</li>
+                <li><strong>Optoacopladores (si aplicable):</strong> IC103-IC104 (aislamiento galvánico)</li>
+            </ul>
+            
+            <h2>Flujo de Reparación Recomendado</h2>
+            
+            <div class="escenario escenario-verde">
+                <h3>🟢 Secuencia de Intervención</h3>
+                <ol>
+                    <li><strong>Desconexión segura:</strong> Aislamiento eléctrico total del rack</li>
+                    <li><strong>Acceso a PCB:</strong> Retirada de carcasa protectora</li>
+                    <li><strong>Verificación visual:</strong> Inspección de componentes visibles</li>
+                    <li><strong>Desoldadura:</strong> Retirada de drivers OUT1/OUT2 defectuosos</li>
+                    <li><strong>Limpieza:</strong> Preparación de pads de soldadura</li>
+                    <li><strong>Instalación:</strong> Soldadura de nuevos drivers</li>
+                    <li><strong>Verificación:</strong> Medición de continuidad y aislamiento</li>
+                    <li><strong>Montaje:</strong> Reensamblaje del rack</li>
+                    <li><strong>Pruebas:</strong> Verificación funcional completa</li>
+                </ol>
+            </div>
+            
+            <p><strong>Nota importante:</strong> Este diagrama sirve como referencia para la localización de componentes durante la reparación y para futuras intervenciones de mantenimiento.</p>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <span>Aperture Technologies – Informe Técnico 2025</span>
+            <span>Página 14</span>
+        </div>
+    </div>
+</body>
+</html>
