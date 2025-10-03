@@ -1,32 +1,18 @@
 {
   "version": 2,
   "name": "pdf-empresa-informe-tecnico",
-  "builds": [
+  "rewrites": [
     {
-      "src": "informe/**",
-      "use": "@vercel/static"
+      "source": "/",
+      "destination": "/informe/index.html"
     },
     {
-      "src": "diagram/**",
-      "use": "@vercel/static"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/",
-      "dest": "/informe/index.html"
+      "source": "/informe/(.*)",
+      "destination": "/informe/$1"
     },
     {
-      "src": "/informe/(.*)",
-      "dest": "/informe/$1"
-    },
-    {
-      "src": "/diagram/(.*)",
-      "dest": "/diagram/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/informe/$1"
+      "source": "/diagram/(.*)",
+      "destination": "/diagram/$1"
     }
   ],
   "headers": [
@@ -48,7 +34,7 @@
       ]
     },
     {
-      "source": "/assets/(.*)",
+      "source": "/informe/assets/(.*)",
       "headers": [
         {
           "key": "Cache-Control",
